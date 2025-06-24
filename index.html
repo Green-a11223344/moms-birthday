@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Mom ❤️🍏👸</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom right, #ffccf2, #d9b3ff);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .container {
+      max-width: 90%;
+      margin: auto;
+      padding: 20px;
+      z-index: 2;
+      position: relative;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 150px;
+      margin: 20px auto;
+      border: 4px solid #fff;
+      box-shadow: 0 0 15px rgba(255,255,255,0.7);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .message {
+      font-size: 1.5em;
+      margin: 20px 0;
+      line-height: 1.6;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .btn {
+      background-color: #ff69b4;
+      border: none;
+      padding: 15px 30px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: 0.3s ease;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.5);
+    }
+
+    .btn:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .photo {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .photo:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    footer {
+      margin: 40px 0 20px;
+      font-size: 0.9em;
+    }
+
+    /* Falling Hearts */
+    .heart {
+      position: absolute;
+      top: -20px;
+      color: pink;
+      font-size: 20px;
+      animation-name: fall;
+      animation-duration: 8s;
+      animation-timing-function: linear;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Emoji Pop Animation */
+    .emoji-pop {
+      position: absolute;
+      font-size: 30px;
+      animation: popUp 2s ease-out forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes popUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* Bubble Font Title Styles */
+    #title-container {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .word {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-size: 3em;
+      white-space: nowrap;
+      color: #fff;
+      letter-spacing: 0;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.6s ease;
+    }
+
+    .word.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Floating Bubbles */
+    .bubble {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: floatBubble 3s ease-out forwards;
+    }
+
+    @keyframes floatBubble {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Falling Hearts -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      heart.style.opacity = Math.random();
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+  <!-- Emoji Pop Script -->
+  <script>
+    function createEmoji(x, y) {
+      const emoji = document.createElement('div');
+      emoji.classList.add('emoji-pop');
+      emoji.textContent = '🥳';
+      emoji.style.left = x + 'px';
+      emoji.style.top = y + 'px';
+      document.body.appendChild(emoji);
+
+      setTimeout(() => {
+        emoji.remove();
+      }, 2000);
+    }
+
+    // Desktop click
+    document.addEventListener('click', function(e) {
+      createEmoji(e.pageX, e.pageY);
+    });
+
+    // Mobile touch
+    document.addEventListener('touchstart', function(e) {
+      const touch = e.touches[0];
+      createEmoji(touch.pageX, touch.pageY);
+    });
+  </script>
+
+  <!-- Animated Title Container -->
+  <div id="title-container">
+    <div class="word" id="word1">❤️ HAPPY</div>
+    <div class="word" id="word2">🍏 BIRTHDAY</div>
+    <div class="word" id="word3">👸 MOM!</div>
+    <div id="sparkles"></div>
+  </div>
+
+  <!-- JavaScript for Animating Words + Bubbles -->
+  <script>
+    const words = ['HAPPY BIRTHDAY MOM! ❤️🍏👸'];
+    const wordElements = [
+      document.getElementById('word1'),
+      document.getElementById('word2'),
+      document.getElementById('word3')
+    ];
+
+    const sparklesContainer = document.getElementById('sparkles');
+
+    function showWord(index) {
+      setTimeout(() => {
+        wordElements[index].textContent = words[index];
+        wordElements[index].classList.add('show');
+
+        // Create bubbles at the word position
+        for (let i = 0; i < 10; i++) {
+          const bubble = document.createElement('div');
+          bubble.className = 'bubble';
+
+          // Position bubble at the word
+          const rect = wordElements[index].getBoundingClientRect();
+          bubble.style.left = `${rect.left + rect.width / 2}px`;
+          bubble.style.top = `${rect.top + window.scrollY}px`;
+
+          document.body.appendChild(bubble);
+
+          // Remove bubble after animation
+          setTimeout(() => bubble.remove(), 3000);
+        }
+      }, index * 1000); // Delay each word by 1 second
+    }
+
+    // Show each word one by one
+    for (let i = 0; i < words.length; i++) {
+      showWord(i);
+    }
+  </script>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- Main Image -->
+    <img src="mom6.jpg" alt="Mom's Birthday"> <!-- Changed to mom6.jpg -->
+
+    <div class="message">
+      <p id="shortMessage">Mom, You're my very own Proverbs 31 woman — strong, wise, full of grace, and somehow always knows when I’ve done something wrong without me even saying a word. (Yes, even when I didn’t tell you.)</p>
+
+      <p id="fullMessage" style="display: none;">
+        You raised me with love, laughter, and just the right amount of “What were you thinking?!” — all seasoned with prayer, Scripture, and your famous chicken soup (which I’m convinced also has holy anointing oil in it).<br><br>
+
+        You've taught me about kindness from Jesus, patience from Job, and how to nag… I mean *encourage* — like the Holy Spirit gently reminding us to stay on track. 😄<br><br>
+
+        Thank you for teaching me to love God, trust His plan, and still check under the bed for monsters — just in case. You’ve been my first prayer warrior, my biggest cheerleader, and my personal reminder that God uses imperfect people to do amazing things.<br><br>
+
+        Today is your day to shine — may it be filled with joy, peace, worship, and absolutely no laundry (unless the Holy Spirit leads you to it).<br><br>
+
+        Happy Birthday, Mom. I love you more than Paul loved his thorn in the flesh (which he kept asking God to take away… just like I keep asking you to stop quoting Bible verses at inconvenient times 😅).<br><br>
+
+        You're not just my mom — you're my hero, my encourager, and my favorite voice of godly wisdom. Even when you use it to tease me. 😂💖
+      </p>
+
+      <button onclick="toggleMessage()" id="readMoreBtn" class="btn">Read more →</button>
+    </div>
+
+    <button class="btn" onclick="showWishes()">Send Virtual Hugs 🤗</button>
+
+    <div id="wishesBox" style="display:none; margin-top:20px;">
+      <p>💖 Wishing you joy, laughter, and love today and always!</p>
+      <p>🎂 May your day be as amazing as you are!</p>
+      <p>🌸 Love you tons and tons, Mom!</p>
+    </div>
+
+    <h2>📸 Some Memories We've Shared</h2>
+    <div class="photos">
+      <!-- Photo Gallery -->
+      <img class="photo" src="mom1.jpg" alt="Memory 1">
+      <img class="photo" src="mom3.jpg" alt="Memory 2">
+      <img class="photo" src="mom4.jpg" alt="Memory 3">
+      <img class="photo" src="mom5.jpg" alt="Memory 4">
+    </div>
+
+    <footer>
+      Made with ❤️ by Your Lovely Son Green 😘
+    </footer>
+  </div>
+
+  <script>
+    function showWishes() {
+      document.getElementById("wishesBox").style.display = "block";
+    }
+
+    function toggleMessage() {
+      const full = document.getElementById("fullMessage");
+      const btn = document.getElementById("readMoreBtn");
+
+      if (full.style.display === "none") {
+        full.style.display = "block";
+        btn.textContent = "Read less ↑";
+      } else {
+        full.style.display = "none";
+        btn.textContent = "Read more →";
+      }
+    }
+  </script>
+
+</body>
+</html>
